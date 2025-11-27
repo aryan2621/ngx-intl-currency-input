@@ -12,7 +12,7 @@
         <form #f="ngForm" [formGroup]="currencyForm">
           <div class="form-section">
             <label class="form-label">Amount</label>
-            <ngx-currency-input
+            <ngx-intl-currency-input
               [cssClass]="'custom'"
               [preferredCurrencies]="preferredCurrencies"
               [enablePlaceholder]="true"
@@ -33,7 +33,7 @@
               name="amount"
               formControlName="amount"
             >
-            </ngx-currency-input>
+            </ngx-intl-currency-input>
 
             <div
               class="validation-message mt-2"

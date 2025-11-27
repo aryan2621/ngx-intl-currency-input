@@ -19,28 +19,28 @@ import { CurrencyISO } from "./enums/currency-iso.enum";
 import { SearchCurrencyField } from "./enums/search-currency-field.enum";
 import { ChangeData } from "./interfaces/change-data";
 import { Currency } from "./model/currency.model";
-import { currencyAmountValidator } from "./ngx-currency-input.validator";
+import { currencyAmountValidator } from "./ngx-intl-currency-input.validator";
 import { CurrencyFormat } from "./enums/currency-format.enum";
 
 @Component({
-  selector: "ngx-currency-input",
-  templateUrl: "./ngx-currency-input.component.html",
-  styleUrls: ["./bootstrap-dropdown.css", "./ngx-currency-input.component.css"],
+  selector: "ngx-intl-currency-input",
+  templateUrl: "./ngx-intl-currency-input.component.html",
+  styleUrls: ["./bootstrap-dropdown.css", "./ngx-intl-currency-input.component.css"],
   providers: [
     CurrencyCode,
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NgxCurrencyInputComponent),
+      useExisting: forwardRef(() => NgxIntlCurrencyInputComponent),
       multi: true,
     },
     {
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => NgxCurrencyInputComponent),
+      useExisting: forwardRef(() => NgxIntlCurrencyInputComponent),
       multi: true,
     },
   ],
 })
-export class NgxCurrencyInputComponent implements OnInit, OnChanges, ControlValueAccessor, Validator {
+export class NgxIntlCurrencyInputComponent implements OnInit, OnChanges, ControlValueAccessor, Validator {
   @Input() value: string | undefined = "";
   @Input() preferredCurrencies: Array<string> = [];
   @Input() enablePlaceholder = true;

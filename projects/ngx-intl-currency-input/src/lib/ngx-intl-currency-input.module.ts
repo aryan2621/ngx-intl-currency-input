@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { NgxCurrencyInputComponent } from './ngx-currency-input.component';
+import { NgxIntlCurrencyInputComponent } from './ngx-intl-currency-input.component';
 
 @NgModule({
-  declarations: [NgxCurrencyInputComponent],
+  declarations: [NgxIntlCurrencyInputComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, BsDropdownModule.forRoot()],
-  exports: [NgxCurrencyInputComponent],
+  exports: [NgxIntlCurrencyInputComponent],
 })
-export class NgxCurrencyInputModule {}
+export class NgxIntlCurrencyInputModule {}

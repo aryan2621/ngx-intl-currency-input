@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { CurrencyISO } from 'projects/ngx-currency-input/src/lib/enums/currency-iso.enum';
-import { CurrencyFormat } from 'projects/ngx-currency-input/src/public_api';
-import { SearchCurrencyField } from 'projects/ngx-currency-input/src/lib/enums/search-currency-field.enum';
+import { CurrencyISO } from 'projects/ngx-intl-currency-input/src/lib/enums/currency-iso.enum';
+import { CurrencyFormat } from 'projects/ngx-intl-currency-input/src/public_api';
+import { SearchCurrencyField } from 'projects/ngx-intl-currency-input/src/lib/enums/search-currency-field.enum';
 
 @Component({
   selector: 'app-root',

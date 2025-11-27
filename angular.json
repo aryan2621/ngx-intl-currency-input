@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-currency-input-app": {
+    "ngx-intl-currency-input-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-currency-input-app",
+            "outputPath": "dist/ngx-intl-currency-input-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "ngx-currency-input-app:build"
+            "buildTarget": "ngx-intl-currency-input-app:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "ngx-currency-input-app:build:production"
+              "buildTarget": "ngx-intl-currency-input-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ngx-currency-input-app:build"
+            "buildTarget": "ngx-intl-currency-input-app:build"
           }
         },
         "test": {
@@ -93,25 +93,25 @@
         }
       }
     },
-    "ngx-currency-input": {
-      "root": "projects/ngx-currency-input",
-      "sourceRoot": "projects/ngx-currency-input/src",
+    "ngx-intl-currency-input": {
+      "root": "projects/ngx-intl-currency-input",
+      "sourceRoot": "projects/ngx-intl-currency-input/src",
       "projectType": "library",
       "prefix": "ngx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/ngx-currency-input/tsconfig.lib.json",
-            "project": "projects/ngx-currency-input/ng-package.json"
+            "tsConfig": "projects/ngx-intl-currency-input/tsconfig.lib.json",
+            "project": "projects/ngx-intl-currency-input/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-currency-input/src/test.ts",
-            "tsConfig": "projects/ngx-currency-input/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-currency-input/karma.conf.js"
+            "main": "projects/ngx-intl-currency-input/src/test.ts",
+            "tsConfig": "projects/ngx-intl-currency-input/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-intl-currency-input/karma.conf.js"
           }
         }
       }

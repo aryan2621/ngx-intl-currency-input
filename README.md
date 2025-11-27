@@ -1,36 +1,31 @@
-# International Currency Input for Angular (NgxCurrencyInput)
+# International Currency Input for Angular (NgxIntlCurrencyInput)
 
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/aryan2621/ngx-currency-input)
-[![license](https://img.shields.io/github/license/aryan2621/ngx-currency-input)](https://github.com/aryan2621/ngx-currency-input/blob/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/ngx-currency-input)](https://badge.fury.io/js/ngx-currency-input)
-[![npm](https://img.shields.io/npm/dm/ngx-currency-input)](https://www.npmjs.com/package/ngx-currency-input)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/webcat12345/ngx-intl-currency-input)
+[![license](https://img.shields.io/github/license/webcat12345/ngx-intl-currency-input)](https://github.com/webcat12345/ngx-intl-currency-input/blob/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/ngx-intl-currency-input)](https://badge.fury.io/js/ngx-intl-currency-input)
+[![npm](https://img.shields.io/npm/dm/ngx-intl-currency-input)](https://www.npmjs.com/package/ngx-intl-currency-input)
 
 An Angular package for entering and validating currency amounts with multi-currency support. It adds a currency dropdown to any input, displays the currency symbol, and provides locale-based formatting and validation methods.
 
-**Repository:** [https://github.com/aryan2621/ngx-currency-input](https://github.com/aryan2621/ngx-currency-input)
+**Repository:** [https://github.com/webcat12345/ngx-intl-currency-input](https://github.com/webcat12345/ngx-intl-currency-input)
 
-## Recent Improvements
+## Features
 
-Version 17.x.x includes significant refactoring for improved maintainability and performance:
-
-- **Removed over-engineering**: Eliminated ~450+ lines of unnecessary complexity
-- **Simplified Currency model**: Removed UI-specific properties, keeping only business data
-- **Composable validators**: New `CurrencyValidators` class with individual, testable validator functions
-- **Cleaner search logic**: Simplified currency search with better readability
-- **Improved keyboard handling**: Refactored 67-line input handler into focused, maintainable methods
-- **Better type safety**: Made `ChangeData` interface properties required for stronger contracts
-- **Removed global directive**: Eliminated invasive `NativeElementInjectorDirective` that affected all forms
-- **DRY principle**: Extracted duplicate change data building logic into single reusable method
-
-**Result:** ~20-25% reduction in codebase complexity while maintaining full functionality.
-
-![alt](readme-assets/ngx-intl-tel-input.jpg)
+- **Multi-currency support**: 58 major world currencies with proper symbols and formatting
+- **Locale-aware formatting**: Automatic formatting based on currency locale using `Intl.NumberFormat`
+- **Smart validation**: Built-in and composable validators for amount ranges, decimals, and more
+- **Searchable dropdown**: Quick currency search by code, name, or symbol
+- **Keyboard optimized**: Intelligent input handling for numeric entry with decimal support
+- **Flexible styling**: Customizable CSS classes and separate currency code display option
+- **Type-safe**: Full TypeScript support with proper interfaces and enums
+- **Reactive Forms**: Native Angular Forms integration with `ControlValueAccessor`
+- **Clean architecture**: Maintainable codebase with composable validators and DRY principles
 
 **Compatibility:**
 
-| ngx-currency-input | Angular         | ngx-bootstrap |
-| ------------------ |-----------------| ------------- |
-| 17.x.x             | >= 17.x.x       | >= 12.0.0     |
+| ngx-intl-currency-input | Angular   | ngx-bootstrap |
+| ----------------------- | --------- | ------------- |
+| 17.x.x                  | >= 17.x.x | >= 12.0.0     |
 
 ## Installation
 
@@ -43,16 +38,16 @@ bootstrap styling needed for the dropdown. As such, you can remove the bootstrap
 
 ### Install This Library
 
-`$ npm install ngx-currency-input --save`
+`$ npm install ngx-intl-currency-input --save`
 
 ## Usage
 
 ### Import
 
-Add `NgxCurrencyInputModule` to your module file:
+Add `NgxIntlCurrencyInputModule` to your module file:
 
 ```javascript
-imports: [NgxCurrencyInputModule];
+imports: [NgxIntlCurrencyInputModule];
 ```
 
 ## Example
@@ -61,7 +56,7 @@ Refer to main app in this repository for working example.
 
 ```html
 <form #f="ngForm" [formGroup]="currencyForm">
-  <ngx-currency-input
+  <ngx-intl-currency-input
     [cssClass]="'custom'"
     [preferredCurrencies]="[CurrencyISO.USD, CurrencyISO.EUR]"
     [enablePlaceholder]="true"
@@ -76,37 +71,37 @@ Refer to main app in this repository for working example.
     [allowNegative]="false"
     name="amount"
     formControlName="amount"
-  ></ngx-currency-input>
+  ></ngx-intl-currency-input>
 </form>
 ```
 
 ## Options
 
-| Options                  | Type                     | Default                           | Description                                                                                                   |
-| ------------------------ | ------------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| cssClass                 | `string`                 | `control-form`                    | Bootstrap input css class or your own custom one.                                                             |
-| preferredCurrencies      | `<CurrencyISO>[]`        | `[]`                              | List of currencies, which will appear at the top.                                                              |
-| onlyCurrencies           | `<CurrencyISO>[]`        | `[]`                              | List of manually selected currencies, which will appear in the dropdown.                                       |
-| enablePlaceholder        | `boolean`                | `true`                            | Input placeholder text, which adapts to the currency selected.                                                 |
-| customPlaceholder        | `string`                 | `None`                            | Custom string to be inserted as a placeholder.                                                                |
-| currencyFormat           | `<CurrencyFormat>`       | `CurrencyFormat.LOCALE_DEFAULT`   | Format for displaying currency amounts.                                                                        |
-| searchCurrencyFlag       | `boolean`                | `false`                           | Enables input search box for currencies in the dropdown.                                                       |
-| searchCurrencyField      | `<SearchCurrencyField>[]`| `[Code, Name, Symbol]`            | Customize which fields to search in, if `searchCurrencyFlag` is enabled. Use `SearchCurrencyField` helper enum.|
-| searchCurrencyPlaceholder| `string`                 | `'Search Currency'`               | Placeholder value for `searchCurrencyField`                                                                    |
-| maxLength                | `number`                 | `None`                            | Add character limit.                                                                                          |
-| selectFirstCurrency      | `boolean`                | `true`                            | Selects first currency from `preferredCurrencies` if is set. If not then uses main list.                      |
-| currencyValidation       | `boolean`                | `true`                            | Enable/disable currency validation.                                                                            |
-| inputId                  | `string`                 | `amount`                          | Unique ID for `<input>` element.                                                                              |
-| selectedCurrencyISO      | `<CurrencyISO>`          | `None`                            | Set specific currency on load.                                                                                 |
-| separateDialCode         | `boolean`                | `false`                           | Visually separate currency code into the drop down element.                                                    |
-| minAmount                | `number`                 | `None`                            | Minimum amount validation.                                                                                     |
-| maxAmount                | `number`                 | `None`                            | Maximum amount validation.                                                                                     |
-| allowNegative            | `boolean`                | `false`                           | Allow negative currency amounts.                                                                               |
-| currencyChange           | `<Currency>`             | `None`                            | Emits currency value when the user selects a currency from the dropdown.                                       |
+| Options                   | Type                      | Default                         | Description                                                                                                     |
+| ------------------------- | ------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| cssClass                  | `string`                  | `control-form`                  | Bootstrap input css class or your own custom one.                                                               |
+| preferredCurrencies       | `<CurrencyISO>[]`         | `[]`                            | List of currencies, which will appear at the top.                                                               |
+| onlyCurrencies            | `<CurrencyISO>[]`         | `[]`                            | List of manually selected currencies, which will appear in the dropdown.                                        |
+| enablePlaceholder         | `boolean`                 | `true`                          | Input placeholder text, which adapts to the currency selected.                                                  |
+| customPlaceholder         | `string`                  | `None`                          | Custom string to be inserted as a placeholder.                                                                  |
+| currencyFormat            | `<CurrencyFormat>`        | `CurrencyFormat.LOCALE_DEFAULT` | Format for displaying currency amounts.                                                                         |
+| searchCurrencyFlag        | `boolean`                 | `false`                         | Enables input search box for currencies in the dropdown.                                                        |
+| searchCurrencyField       | `<SearchCurrencyField>[]` | `[Code, Name, Symbol]`          | Customize which fields to search in, if `searchCurrencyFlag` is enabled. Use `SearchCurrencyField` helper enum. |
+| searchCurrencyPlaceholder | `string`                  | `'Search Currency'`             | Placeholder value for `searchCurrencyField`                                                                     |
+| maxLength                 | `number`                  | `None`                          | Add character limit.                                                                                            |
+| selectFirstCurrency       | `boolean`                 | `true`                          | Selects first currency from `preferredCurrencies` if is set. If not then uses main list.                        |
+| currencyValidation        | `boolean`                 | `true`                          | Enable/disable currency validation.                                                                             |
+| inputId                   | `string`                  | `amount`                        | Unique ID for `<input>` element.                                                                                |
+| selectedCurrencyISO       | `<CurrencyISO>`           | `None`                          | Set specific currency on load.                                                                                  |
+| separateDialCode          | `boolean`                 | `false`                         | Visually separate currency code into the drop down element.                                                     |
+| minAmount                 | `number`                  | `None`                          | Minimum amount validation.                                                                                      |
+| maxAmount                 | `number`                  | `None`                          | Maximum amount validation.                                                                                      |
+| allowNegative             | `boolean`                 | `false`                         | Allow negative currency amounts.                                                                                |
+| currencyChange            | `<Currency>`              | `None`                          | Emits currency value when the user selects a currency from the dropdown.                                        |
 
 ## Supported Currencies
 
-This library supports 58+ major world currencies including:
+This library supports 58 major world currencies including:
 
 - USD (United States Dollar)
 - EUR (Euro)
@@ -121,6 +116,7 @@ This library supports 58+ major world currencies including:
 ## Currency Formatting
 
 Currency amounts are formatted based on the selected currency's locale:
+
 - **USD**: 1,234.56 (US format)
 - **EUR**: 1.234,56 (European format)
 - **JPY**: 1,235 (no decimal places)
@@ -136,13 +132,13 @@ The library provides comprehensive validation with two approaches:
 Simply enable validation via component inputs:
 
 ```html
-<ngx-currency-input
+<ngx-intl-currency-input
   [currencyValidation]="true"
   [minAmount]="0"
   [maxAmount]="1000000"
   [allowNegative]="false"
   formControlName="amount"
-></ngx-currency-input>
+></ngx-intl-currency-input>
 ```
 
 ### 2. Composable Validators (Advanced)
@@ -150,19 +146,20 @@ Simply enable validation via component inputs:
 For more control, use the `CurrencyValidators` class to compose custom validation:
 
 ```typescript
-import { CurrencyValidators } from 'ngx-currency-input';
+import { CurrencyValidators } from "ngx-intl-currency-input";
 
 // Create a form control with composable validators
-this.amountControl = new FormControl('', [
+this.amountControl = new FormControl("", [
   CurrencyValidators.validNumber(),
   CurrencyValidators.min(10),
   CurrencyValidators.max(10000),
   CurrencyValidators.decimalPlaces(2),
-  CurrencyValidators.noNegative()
+  CurrencyValidators.noNegative(),
 ]);
 ```
 
 **Available Validators:**
+
 - `CurrencyValidators.validNumber()` - Ensures only valid numbers are entered
 - `CurrencyValidators.min(amount)` - Validates minimum amount
 - `CurrencyValidators.max(amount)` - Validates maximum amount
@@ -170,6 +167,7 @@ this.amountControl = new FormControl('', [
 - `CurrencyValidators.noNegative()` - Prevents negative values
 
 **Features:**
+
 - Automatically validates based on currency (e.g., JPY has 0 decimals, most others have 2)
 - Works with both raw values and `ChangeData` objects
 - Provides detailed error messages
@@ -178,7 +176,7 @@ this.amountControl = new FormControl('', [
 ## Library Contributions
 
 - Fork repo.
-- Update `./projects/ngx-currency-input`
+- Update `./projects/ngx-intl-currency-input`
 - Build / test library.
 - Update `./src/app` with new functionality.
 - Update README.md

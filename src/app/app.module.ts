@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgxCurrencyInputModule } from 'projects/ngx-currency-input/src/lib/ngx-currency-input.module';
+import { NgxIntlCurrencyInputModule } from 'projects/ngx-intl-currency-input/src/lib/ngx-intl-currency-input.module';
 
 import { AppComponent } from './app.component';
 
@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxCurrencyInputModule,
+    NgxIntlCurrencyInputModule,
     BrowserAnimationsModule,
   ],
   providers: [],

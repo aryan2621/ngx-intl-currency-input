@@ -139,7 +139,7 @@ body {
 }
 
 /* Currency input component */
-ngx-currency-input {
+ngx-intl-currency-input {
   display: block;
   width: 100%;
 }
