@@ -1,13 +1,13 @@
 # International Currency Input for Angular (NgxIntlCurrencyInput)
 
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/webcat12345/ngx-intl-currency-input)
-[![license](https://img.shields.io/github/license/webcat12345/ngx-intl-currency-input)](https://github.com/webcat12345/ngx-intl-currency-input/blob/master/LICENSE)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/aryan2621/ngx-intl-currency-input)
+[![license](https://img.shields.io/github/license/aryan2621/ngx-intl-currency-input)](https://github.com/aryan2621/ngx-intl-currency-input/blob/master/LICENSE)
 [![npm version](https://img.shields.io/npm/v/ngx-intl-currency-input)](https://badge.fury.io/js/ngx-intl-currency-input)
 [![npm](https://img.shields.io/npm/dm/ngx-intl-currency-input)](https://www.npmjs.com/package/ngx-intl-currency-input)
 
 An Angular package for entering and validating currency amounts with multi-currency support. It adds a currency dropdown to any input, displays the currency symbol, and provides locale-based formatting and validation methods.
 
-**Repository:** [https://github.com/webcat12345/ngx-intl-currency-input](https://github.com/webcat12345/ngx-intl-currency-input)
+**Repository:** [https://github.com/aryan2621/ngx-intl-currency-input](https://github.com/aryan2621/ngx-intl-currency-input)
 
 ## Features
 

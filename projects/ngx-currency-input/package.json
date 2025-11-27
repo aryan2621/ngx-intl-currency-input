@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webcat12345/ngx-intl-currency-input.git"
+    "url": "git+https://github.com/aryan2621/ngx-intl-currency-input.git"
   },
   "author": {
-    "name": "webcat12345",
+    "name": "aryan2621",
     "email": "webcat91@gmail.com"
   },
   "keywords": [
@@ -32,7 +32,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/webcat12345/ngx-intl-currency-input/issues"
+    "url": "https://github.com/aryan2621/ngx-intl-currency-input/issues"
   },
   "devDependencies": {}
 }
