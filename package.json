@@ -1,5 +1,5 @@
 {
-  "name": "ngx-intl-currency-input-app",
+  "name": "ngx-intl-currency-input",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_stats": "ng build --stats-json",
-    "analyze": "webpack-bundle-analyzer dist/ngx-intl-currency-input-app/stats.json",
+    "analyze": "webpack-bundle-analyzer dist/ngx-intl-currency-input/stats.json",
     "build_lib": "ng build ngx-intl-currency-input",
     "copy-license": "cp ./LICENSE ./dist/ngx-intl-currency-input",
     "copy-readme": "cp ./README.md ./dist/ngx-intl-currency-input",
