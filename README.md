@@ -77,15 +77,14 @@ Refer to main app in this repository for working example.
 
 ## Options
 
-| Options                   | Type                      | Default                         | Description                                                                                                     |
-| ------------------------- | ------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| cssClass                  | `string`                  | `control-form`                  | Bootstrap input css class or your own custom one.                                                               |
-| preferredCurrencies       | `<CurrencyISO>[]`         | `[]`                            | List of currencies, which will appear at the top.                                                               |
-| onlyCurrencies            | `<CurrencyISO>[]`         | `[]`                            | List of manually selected currencies, which will appear in the dropdown.                                        |
-| enablePlaceholder         | `boolean`                 | `true`                          | Input placeholder text, which adapts to the currency selected.                                                  |
-| customPlaceholder         | `string`                  | `None`                          | Custom string to be inserted as a placeholder.                                                                  |
-| currencyFormat            | `<CurrencyFormat>`        | `CurrencyFormat.LOCALE_DEFAULT` | Format for displaying currency amounts.                                                                         |
-| searchCurrencyFlag        | `boolean`                 | `false`                         | Enables input search box for currencies in the dropdown.                                                        |
+| Options                   | Type                      | Default                | Description                                                                                                     |
+| ------------------------- | ------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------- |
+| cssClass                  | `string`                  | `control-form`         | Bootstrap input css class or your own custom one.                                                               |
+| preferredCurrencies       | `<CurrencyISO>[]`         | `[]`                   | List of currencies, which will appear at the top.                                                               |
+| onlyCurrencies            | `<CurrencyISO>[]`         | `[]`                   | List of manually selected currencies, which will appear in the dropdown.                                        |
+| enablePlaceholder         | `boolean`                 | `true`                 | Input placeholder text, which adapts to the currency selected.                                                  |
+| customPlaceholder         | `string`                  | `None`                 | Custom string to be inserted as a placeholder.                                                                  |
+| searchCurrencyFlag        | `boolean`                 | `false`                | Enables input search box for currencies in the dropdown.                                                        |
 | searchCurrencyField       | `<SearchCurrencyField>[]` | `[Code, Name, Symbol]`          | Customize which fields to search in, if `searchCurrencyFlag` is enabled. Use `SearchCurrencyField` helper enum. |
 | searchCurrencyPlaceholder | `string`                  | `'Search Currency'`             | Placeholder value for `searchCurrencyField`                                                                     |
 | maxLength                 | `number`                  | `None`                          | Add character limit.                                                                                            |

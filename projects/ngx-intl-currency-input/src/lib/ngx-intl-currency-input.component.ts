@@ -20,7 +20,6 @@ import { SearchCurrencyField } from "./enums/search-currency-field.enum";
 import { ChangeData } from "./interfaces/change-data";
 import { Currency } from "./model/currency.model";
 import { currencyAmountValidator } from "./ngx-intl-currency-input.validator";
-import { CurrencyFormat } from "./enums/currency-format.enum";
 
 @Component({
   selector: "ngx-intl-currency-input",
@@ -45,7 +44,6 @@ export class NgxIntlCurrencyInputComponent implements OnInit, OnChanges, Control
   @Input() preferredCurrencies: Array<string> = [];
   @Input() enablePlaceholder = true;
   @Input() customPlaceholder: string;
-  @Input() currencyFormat: CurrencyFormat = CurrencyFormat.LOCALE_DEFAULT;
   @Input() cssClass = "form-control";
   @Input() onlyCurrencies: Array<string> = [];
   @Input() searchCurrencyFlag = false;
