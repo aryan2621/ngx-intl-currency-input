@@ -17,7 +17,6 @@
     "npm_pack": "npm run copy-files && cd dist/ngx-intl-currency-input && npm pack",
     "package": "rimraf ./dist && npm run build_lib && npm run npm_pack"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^17.0.0",
     "@angular/common": "^17.0.0",
