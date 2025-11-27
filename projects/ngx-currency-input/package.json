@@ -1,0 +1,37 @@
+{
+  "name": "ngx-currency-input",
+  "version": "17.0.0",
+  "peerDependencies": {
+    "@angular/common": ">= 17.0.0",
+    "@angular/core": ">= 17.0.0",
+    "@angular/forms": ">= 17.0.0",
+    "ngx-bootstrap": ">= 12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webcat12345/ngx-currency-input.git"
+  },
+  "author": {
+    "name": "webcat12345",
+    "email": "webcat91@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "ng17",
+    "angular 17",
+    "currency",
+    "currency input",
+    "money input",
+    "validation",
+    "currency validation",
+    "internationalization",
+    "i18n",
+    "locale",
+    "formatting"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webcat12345/ngx-currency-input/issues"
+  },
+  "devDependencies": {}
+}

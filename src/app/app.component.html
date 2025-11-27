@@ -1,0 +1,161 @@
+<div class="page-wrapper">
+  <div class="demo-header">
+    <h1>Currency Input Component</h1>
+    <p class="subtitle">A clean and simple currency selector with validation</p>
+  </div>
+
+  <div class="main-columns">
+    <div class="main-column">
+      <div class="container">
+        <h2>Test Currency Input Form</h2>
+
+        <form #f="ngForm" [formGroup]="currencyForm">
+          <div class="form-section">
+            <label class="form-label">Amount</label>
+            <ngx-currency-input
+              [cssClass]="'custom'"
+              [preferredCurrencies]="preferredCurrencies"
+              [enablePlaceholder]="true"
+              [searchCurrencyFlag]="true"
+              [searchCurrencyField]="[
+                SearchCurrencyField.Code,
+                SearchCurrencyField.Name,
+              ]"
+              [selectFirstCurrency]="false"
+              [selectedCurrencyISO]="CurrencyISO.USD"
+              [maxLength]="15"
+              [currencyValidation]="true"
+              [separateDialCode]="separateDialCode"
+              [currencyFormat]="CurrencyFormat.LOCALE_DEFAULT"
+              [minAmount]="0"
+              [maxAmount]="1000000"
+              [allowNegative]="false"
+              name="amount"
+              formControlName="amount"
+            >
+            </ngx-currency-input>
+
+            <div
+              class="validation-message mt-2"
+              *ngIf="
+                f.form.controls['amount'].invalid &&
+                f.form.controls['amount'].touched
+              "
+            >
+              <small class="error-text"
+                >Please enter a valid amount between 0 and 1,000,000</small
+              >
+            </div>
+          </div>
+
+          <div class="controls-section">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                [(ngModel)]="separateDialCode"
+                [ngModelOptions]="{ standalone: true }"
+              />
+              <span>Show currency code separately</span>
+            </label>
+
+            <div class="button-group">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="changePreferredCurrencies()"
+              >
+                Change Preferred Currencies
+              </button>
+              <button type="button" class="btn btn-outline" (click)="f.reset()">
+                Reset
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="main-column">
+      <div class="container">
+        <h2>Debug Information</h2>
+
+        <div class="debug-group">
+          <h4>Form State</h4>
+          <div class="debug-item">
+            <span class="label">Valid:</span>
+            <span
+              class="value"
+              [class.success]="currencyForm.valid"
+              [class.error]="!currencyForm.valid"
+            >
+              {{ currencyForm.valid }}
+            </span>
+          </div>
+          <div class="debug-item">
+            <span class="label">Touched:</span>
+            <span class="value">{{ currencyForm.touched }}</span>
+          </div>
+          <div class="debug-item">
+            <span class="label">Dirty:</span>
+            <span class="value">{{ currencyForm.dirty }}</span>
+          </div>
+          <div class="debug-item">
+            <span class="label">Status:</span>
+            <span class="value">{{ currencyForm.status }}</span>
+          </div>
+        </div>
+
+        <div class="debug-group">
+          <h4>Amount Control State</h4>
+          <div class="debug-item">
+            <span class="label">Value:</span>
+            <span class="value">{{
+              currencyForm.get("amount")?.value | json
+            }}</span>
+          </div>
+          <div class="debug-item">
+            <span class="label">Valid:</span>
+            <span
+              class="value"
+              [class.success]="currencyForm.get('amount')?.valid"
+              [class.error]="currencyForm.get('amount')?.invalid"
+            >
+              {{ currencyForm.get("amount")?.valid }}
+            </span>
+          </div>
+          <div class="debug-item">
+            <span class="label">Touched:</span>
+            <span class="value">{{ currencyForm.get("amount")?.touched }}</span>
+          </div>
+          <div class="debug-item">
+            <span class="label">Dirty:</span>
+            <span class="value">{{ currencyForm.get("amount")?.dirty }}</span>
+          </div>
+          <div class="debug-item">
+            <span class="label">Errors:</span>
+            <span class="value">{{
+              currencyForm.get("amount")?.errors | json
+            }}</span>
+          </div>
+        </div>
+
+        <div class="debug-group">
+          <h4>Form Value</h4>
+          <pre class="json-output">{{ currencyForm.value | json }}</pre>
+        </div>
+
+        <div class="debug-group">
+          <h4>Component State</h4>
+          <div class="debug-item">
+            <span class="label">Separate Currency Code:</span>
+            <span class="value">{{ separateDialCode }}</span>
+          </div>
+          <div class="debug-item">
+            <span class="label">Preferred Currencies:</span>
+            <span class="value">{{ preferredCurrencies | json }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="currency-input-wrapper" [ngClass]="{ 'separate-code': separateDialCode }">
+  <div
+    class="currency-selector"
+    dropdown
+    [isDisabled]="disabled"
+  >
+    <button
+      type="button"
+      class="currency-button"
+      dropdownToggle
+      [disabled]="disabled"
+    >
+      <span class="currency-symbol">{{ selectedCurrency.symbol }}</span>
+      <span *ngIf="separateDialCode" class="currency-code">{{ selectedCurrency.code }}</span>
+      <span class="arrow"></span>
+    </button>
+
+    <div *dropdownMenu class="dropdown-menu">
+      <input
+        *ngIf="searchCurrencyFlag"
+        type="text"
+        class="search-input"
+        [(ngModel)]="currencySearchText"
+        (keyup)="searchCurrency()"
+        (click)="$event.stopPropagation()"
+        [placeholder]="searchCurrencyPlaceholder"
+        autofocus
+      />
+
+      <ul class="currency-list">
+        <li
+          *ngFor="let currency of preferredCurrenciesInDropDown"
+          class="currency-item preferred"
+          (click)="onCurrencySelect(currency, focusable)"
+        >
+          <span class="symbol">{{ currency.symbol }}</span>
+          <span class="name">{{ currency.name }}</span>
+          <span class="code">{{ currency.code }}</span>
+        </li>
+
+        <li *ngIf="preferredCurrenciesInDropDown?.length" class="divider"></li>
+
+        <li
+          *ngFor="let currency of filteredCurrencies"
+          class="currency-item"
+          (click)="onCurrencySelect(currency, focusable)"
+        >
+          <span class="symbol">{{ currency.symbol }}</span>
+          <span class="name">{{ currency.name }}</span>
+          <span class="code">{{ currency.code }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <input
+    type="text"
+    [id]="inputId"
+    class="amount-input"
+    [ngClass]="cssClass"
+    [(ngModel)]="amount"
+    (ngModelChange)="onAmountChange()"
+    (blur)="onTouched()"
+    (keypress)="onInputKeyPress($event)"
+    [disabled]="disabled"
+    [placeholder]="resolvePlaceholder()"
+    [attr.maxLength]="maxLength"
+    inputmode="decimal"
+    #focusable
+  />
+</div>

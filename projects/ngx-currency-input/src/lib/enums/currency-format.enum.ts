@@ -1,0 +1,7 @@
+export enum CurrencyFormat {
+  SYMBOL_FIRST = 'SYMBOL_FIRST',
+  SYMBOL_LAST = 'SYMBOL_LAST',
+  CODE_ONLY = 'CODE_ONLY',
+  LOCALE_DEFAULT = 'LOCALE_DEFAULT',
+}
+
