@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { CurrencyISO } from 'projects/ngx-intl-currency-input/src/lib/enums/currency-iso.enum';
-import { CurrencyFormat } from 'projects/ngx-intl-currency-input/src/public_api';
 import { SearchCurrencyField } from 'projects/ngx-intl-currency-input/src/lib/enums/search-currency-field.enum';
 
 @Component({
@@ -14,7 +13,6 @@ export class AppComponent implements OnInit {
   separateDialCode = false;
   SearchCurrencyField = SearchCurrencyField;
   CurrencyISO = CurrencyISO;
-  CurrencyFormat = CurrencyFormat;
   preferredCurrencies: CurrencyISO[] = [CurrencyISO.USD, CurrencyISO.EUR];
   currencyForm = new FormGroup({
     amount: new FormControl(undefined, [Validators.required]),
